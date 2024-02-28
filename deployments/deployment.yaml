@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: service
-        image: gcr.io/google-samples/gb-backend:v4
+        image: ${DOCKER_REGISTRY:=jethro1412/golang_ci}:${VERSION:=1.0.0}
         resources:
           requests:
             cpu: 100m
