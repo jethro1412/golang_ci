@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: golang
+spec:
+  selector:
+    matchLabels:
+      app: golang
+      tier: backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: golang
+        tier: backend
+    spec:
+      containers:
+      - name: service
+        image: gcr.io/google-samples/gb-backend:v4
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 8080
